@@ -35,7 +35,7 @@ output Cout
     or (Cout, x_and_y, Cin_and_xy);
     endmodule 
     
-    module RCA #(parameter N = 8)( 
+  module RCA #(parameter N = 8)( 
     input [N-1:0] x,
     input [N-1:0] y,
     input Cin,
@@ -59,4 +59,5 @@ output Cout
     endgenerate
     assign Cout = c[N];
     endmodule
+
 
