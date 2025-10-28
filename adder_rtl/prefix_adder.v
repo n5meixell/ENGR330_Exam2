@@ -35,3 +35,33 @@ output reg Cout
     integer i, j , k;
     
 
+    always @(*) begin
+    for (i = 0; i < N; i = i + 1)begin
+    p_stage[0][i] = x[i] | y[i];
+    g_stage[0][i] = x[i] & y[i];
+    end
+    
+    for (i =1; i <= 6; i = i +1) begin
+    for (j = 0; j < N; j = j + 1) begin
+    if (j >= (1 << (i-1))) begin
+    p_stage[i][j] = p_stage[i-1][j] & p_stage[i-1][j - (1 << (i-1))];
+    g_stage[i][j] = g_stage[i-1][j] | (p_stage[i-1][j] & g_stage[i-1][j - (1 << (i-1))]);
+    end else begin
+    p_stage[i][j] = p_stage[i-1][j];
+    g_stage[i][j] = p_stage[i-1][j];
+    end
+    end
+    end
+        c[0] = Cin;
+    for (k =0; k < N; k = k + 1) begin
+    c[k+1] = g_stage[6][k] | (p_stage[6][k] & Cin);
+    end
+    
+    for (i = 0; i < N; i = i + 1) begin
+    s[i] = x[i] ^ y[i] ^ c[i];
+    end 
+    Cout = c[N];
+    end
+    
+    
+endmodule
