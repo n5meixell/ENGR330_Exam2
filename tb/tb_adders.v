@@ -61,3 +61,35 @@ RCA #(.N(64))  rca64 (.x(x_in64), .y(y_in64), .Cin(Cin64), .s(rca_sum64), .Cout(
 cla_Nbit #(.N(64)) cla64 (.x(x_in64), .y(y_in64), .Cin(Cin64), .s(cla_sum64), .Cout(cla_out64));
 prefix_adder #(.N(64)) pref64 (.x(x_in64), .y(y_in64), .Cin(Cin64), .s(pref_sum64), .Cout(pref_out64));
 
+initial begin
+
+x_in8=0;  y_in8=0;  Cin8=0;
+x_in16=0; y_in16=0; Cin16=0;
+x_in32=0; y_in32=0; Cin32=0;
+x_in64=0; y_in64=0; Cin64=0;
+#5;
+    
+x_in8 = 8'd5; y_in8 = 8'd10; Cin8 = 1; #10;
+x_in8 = 8'd20; y_in8 = 8'd15; Cin8 = 0; #10;
+x_in8 = 8'd50; y_in8 = 8'd25; Cin8 = 1; #10;
+x_in8 = 8'd100; y_in8 = 8'd50; Cin8 = 0; #10;
+
+x_in16 = 16'd100; y_in16 = 16'd200; Cin16 = 1; #10;
+x_in16 = 16'd300; y_in16 = 16'd400; Cin16 = 0; #10;
+x_in16 = 16'd5000; y_in16 = 16'd2500; Cin16 = 0; #10;
+x_in16 = 16'd10000; y_in16 = 16'd5000;Cin16 = 1; #10;
+
+x_in32 = 32'd1000; y_in32 = 32'd2000; Cin32 = 0; #10;
+x_in32 = 32'd12345; y_in32 = 32'd6789;  Cin32 = 0; #10;
+x_in32 = 32'd100000;  y_in32 = 32'd50000;  Cin32 = 1; #10;
+x_in32 = 32'd25000000; y_in32 = 32'd10000000; Cin32 = 1; #10;
+
+x_in64 = 64'd100000; y_in64 = 64'd200000;  Cin64 = 0; #10;
+x_in64 = 64'd500000; y_in64 = 64'd250000; Cin64 = 1; #10;
+x_in64 = 64'd1000000; y_in64 = 64'd500000;  Cin64 = 0; #10;
+x_in64 = 64'd100000000; y_in64 = 64'd50000000;  Cin64 = 1; #10;
+    $finish;
+end
+
+endmodule
+
