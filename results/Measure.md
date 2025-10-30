@@ -17,4 +17,4 @@
 | Prefix-Adder 32-bit Width | 9.86 | 101.4198783 | 138 | 828 |
 | Prefix-Adder 64-bit Width | 11.3 | 88.49557522 | 363 | 2178 |
 
-Summary: As the width increases the RCA slows down the most as it increases but as you can see it uses the least amount of total gates. The CLA is best at the 16-32 bit width because it uses blocks which balance between delay and gate usage. The prefix on the other hand uses the most gates because it's computing everything in parallel, this leads to consistent times with it slowly increasing, but this also leads to it being the most expensive of the 3 but it may be worth it when getting to the higher bit ranges.
+Summary: As the width increases the RCA slows down the most as it increases but as you can see it uses the least amount of total gates. The CLA is best at the 16-32 bit width because it uses blocks which balance between delay and gate usage. The prefix on the other hand uses the most gates because it's computing everything in parallel, this leads to consistent times with it slowly increasing, but this also leads to it being the most expensive of the 3 but it may be worth it when getting to the higher bit ranges. 
